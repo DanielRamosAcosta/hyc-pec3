@@ -1,3 +1,10 @@
-.foo {
-  font-size: 10px;
+:root {
+  --color-dark: rgb(0, 0, 0);
+  --color-light: rgb(255, 255, 255);
+  --color-green: rgb(64, 195, 130);
+  --color-beige: rgb(242, 242, 300);
+  --color-beige-mod: rgba(242, 242, 300, 0.7);
+  --font-family: 'Alegreya Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-family), sans-serif;
+  font-weight: 400;
 }
