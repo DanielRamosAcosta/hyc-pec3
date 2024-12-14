@@ -83,13 +83,19 @@ header {
       flex-direction: column;
       gap: 0.5rem;
     }
+
     a {
       display: block;
       text-transform: uppercase;
       text-decoration: none;
       color: var(--color-dark);
+      transition: color 0.2s ease;
       font-weight: 700;
       font-size: 1rem;
+
+      &:hover {
+        color: var(--color-green)
+      }
     }
   }
 }
@@ -124,6 +130,15 @@ footer {
       display: flex;
       justify-content: center;
       align-items: center;
+
+      a {
+        opacity: 1;
+        transition: opacity 0.2s ease;
+
+        &:hover {
+          opacity: 0.7;
+        }
+      }
     }
 
     ul {
@@ -137,7 +152,12 @@ footer {
 
         a {
           color: inherit;
+          transition: color 0.2s ease;
           text-decoration: none;
+
+          &:hover {
+            color: var(--color-green);
+          }
         }
       }
     }
@@ -235,22 +255,29 @@ div:has(> input[type="checkbox"]) {
   margin: 0.5rem 0 0;
 }
 
-button {
+button, .button {
   align-self: start;
   background: transparent;
-  padding: 0.35rem 0.7rem;
-  font-size: 1.13rem;
   margin: 0;
   border: 1px solid var(--color-dark);
+  transition: border 0.2s ease;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+
+  &:hover {
+    border-color: var(--color-green);
+  }
+}
+
+button {
+  padding: 0.35rem 0.7rem;
+  font-size: 1.13rem;
 }
 
 .button {
-  align-self: start;
-  background: transparent;
   padding: 0.5rem 0.7rem;
   font-size: 1.05rem;
-  margin: 0;
-  border: 1px solid var(--color-dark);
 }
 
 .stories {
