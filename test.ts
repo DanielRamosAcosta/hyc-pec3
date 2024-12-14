@@ -6,7 +6,7 @@ import pixelmatch from "pixelmatch";
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const browser = await puppeteer.launch({
-  headless: false,
+  headless: true,
   args: ["--hide-scrollbars"]
 });
 
