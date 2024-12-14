@@ -209,10 +209,18 @@ a {
   color: var(--color-light);
 
   padding: 10.6rem 1rem 11.3rem;
+  @media(min-width: 768px) {
+    padding-top: 9rem;
+    padding-bottom: 9.8rem;
+  }
 
   h1 {
     font-size: 3rem;
     z-index: 1;
+
+    @media(min-width: 768px) {
+      font-size: 4rem;
+    }
   }
 
   .subtitle {
@@ -220,6 +228,11 @@ a {
     line-height: 1.18;
     margin: 0;
     z-index: 1;
+
+    @media(min-width: 768px) {
+      font-size: 3rem;
+      line-height: 1.1;
+    }
   }
 
   figure {
@@ -316,9 +329,13 @@ button {
 
 .stories {
   margin-top: 3rem;
-  display: flex;
-  flex-direction: column;
-  gap: 3.1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 3.1rem;
+
+  @media(min-width: 768px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 
   > article {
     background: var(--color-light);
