@@ -340,6 +340,8 @@ button {
   > article {
     background: var(--color-light);
     padding: 2rem 1rem 2.5rem;
+    display: flex;
+    flex-direction: column;
 
     h3 {
       font-size: 1.45rem;
@@ -351,13 +353,17 @@ button {
 
     p {
       line-height: 1.5;
-      margin-bottom: 1.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .button {
+      margin-top: auto;
     }
   }
 }
 
 main {
-  margin-bottom: 7rem;
+  margin-bottom: 6.7rem;
 }
 
 .container {
