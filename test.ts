@@ -10,8 +10,8 @@ const browser = await puppeteer.launch({
   args: ["--hide-scrollbars"]
 });
 
-const views = [/*"desktop", "tablet", */ "phone"];
-const pages = ["index" /*, "tema-del-mes", "blog", "post" */];
+const views = ["desktop", "tablet", "phone"];
+const pages = ["index" /*, "tema-del-mes", "blog", "post"*/];
 
 const result = await Promise.all(
   pages.map(async (pageName, i) => {
@@ -88,6 +88,10 @@ fs.watchFile("css/estilos.css", { interval: 100 }, () => {
     onChange(element.page, element).catch(console.error);
   }
 });
+
+for (const element of result) {
+  onChange(element.page, element).catch(console.error);
+}
 
 function toNew(path: string) {
   return path.replace(".png", "-new.png");

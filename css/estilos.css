@@ -57,9 +57,11 @@ body, html {
   --color-dark: rgb(0, 0, 0);
   --color-light: rgb(255, 255, 255);
   --color-green: rgb(64, 195, 130);
-  --color-beige: rgb(242, 242, 300);
+  --color-beige: rgb(242, 242, 230);
   --color-beige-mod: color-mix(in srgb, var(--color-beige) 70%, transparent 30%);
   --font-family: 'Alegreya Sans', 'Helvetica Neue', Arial, sans-serif;
+  --breakpoint-tablet: 768px;
+  --breakpoint-desktop: 1024px;
   font-family: var(--font-family), sans-serif;
   font-weight: 400;
   background-color: var(--color-beige);
@@ -70,8 +72,14 @@ header {
   flex-direction: column;
   gap: 1.3rem;
   text-align: center;
-  padding: 2rem 0 2.5rem;
+  padding: 2rem 4rem 2.5rem;
   background: var(--color-light);
+
+  @media(min-width: 1024px) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
 
   .logo {
     display: block;
@@ -82,6 +90,27 @@ header {
       display: flex;
       flex-direction: column;
       gap: 0.5rem;
+      list-style: none;
+
+      @media(min-width: 1024px) {
+        flex-direction: row;
+        gap: 2.5rem;
+      }
+
+      li {
+        display: flex;
+        position: relative;
+        justify-content: center;
+
+        @media(min-width: 1024px) {
+          &:not(:first-child)::before {
+            content: "|";
+            font-weight: 700;
+            position: absolute;
+            left: -1.3rem;
+          }
+        }
+      }
     }
 
     a {
