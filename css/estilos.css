@@ -162,20 +162,22 @@ a {
 
   h1 {
     font-size: 3rem;
+    z-index: 1;
   }
 
   .subtitle {
     font-size: 2rem;
     line-height: 1.18;
     margin: 0;
+    z-index: 1;
   }
 
   figure {
     top: 0;
     left: 0;
-    z-index: -1;
     position: absolute;
     height: 100%;
+    width: 100%;
 
     img {
       height: 100%;
@@ -192,6 +194,7 @@ a {
       color: var(--color-dark);
       background-color: var(--color-beige-mod);
       font-size: 0.8rem;
+      z-index: 50;
     }
   }
 }
