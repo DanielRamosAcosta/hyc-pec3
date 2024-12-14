@@ -213,6 +213,10 @@ a {
     padding-top: 9rem;
     padding-bottom: 9.8rem;
   }
+  @media(min-width: 1024px) {
+    padding-top: 10rem;
+    padding-bottom: 11rem;
+  }
 
   h1 {
     font-size: 3rem;
@@ -220,6 +224,10 @@ a {
 
     @media(min-width: 768px) {
       font-size: 4rem;
+    }
+
+    @media(min-width: 1024px) {
+      font-size: 5rem;
     }
   }
 
@@ -265,6 +273,10 @@ a {
 h2 {
   font-size: 2rem;
   margin: 4rem 0 3.2rem;
+
+  @media(min-width: 1024px) {
+    font-size: 2.5rem;
+  }
 }
 
 p {
@@ -369,4 +381,6 @@ main {
 
 .container {
   padding: 1rem;
+  max-width: 1140px;
+  margin: 0 auto;
 }
