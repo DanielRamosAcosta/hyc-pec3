@@ -5,10 +5,13 @@ import pixelmatch from "pixelmatch";
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
-const browser = await puppeteer.launch({ headless: false });
+const browser = await puppeteer.launch({
+  headless: false,
+  args: ["--hide-scrollbars"]
+});
 
-const views = ["desktop", "tablet", "phone"];
-const pages = ["index", "tema-del-mes", "blog", "post"];
+const views = [/*"desktop", "tablet", */ "phone"];
+const pages = ["index" /*, "tema-del-mes", "blog", "post" */];
 
 const result = await Promise.all(
   pages.map(async (pageName, i) => {

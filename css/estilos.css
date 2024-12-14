@@ -1,14 +1,153 @@
+/*<editor-fold desc="Reset">*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+ul[role='list'], ol[role='list'] {
+  list-style: none;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+img, picture, svg, video, canvas {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  font-style: italic;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+    transition: none;
+  }
+}
+
+body, html {
+  height: 100%;
+  scroll-behavior: smooth;
+}
+/*</editor-fold>*/
+
 :root {
   --color-dark: rgb(0, 0, 0);
   --color-light: rgb(255, 255, 255);
   --color-green: rgb(64, 195, 130);
   --color-beige: rgb(242, 242, 300);
-  --color-beige-mod: rgba(242, 242, 300, 0.7);
+  --color-beige-mod: color-mix(in srgb, var(--color-beige) 70%, transparent 30%);
   --font-family: 'Alegreya Sans', 'Helvetica Neue', Arial, sans-serif;
   font-family: var(--font-family), sans-serif;
   font-weight: 400;
 }
 
+header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+  text-align: center;
+  padding: 2rem 0 2.5rem;
+
+  .logo {
+    display: block;
+  }
+
+  nav  {
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    a {
+      display: block;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--color-dark);
+      font-weight: 700;
+      font-size: 1rem;
+    }
+  }
+}
+
 footer {
   background-color: var(--color-dark);
+  color: white;
+}
+
+a {
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  font-style: normal;
+  color: var(--color-dark);
+}
+
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  text-align: center;
+  color: var(--color-light);
+
+  padding-top: 10.6rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  padding-bottom: 11.3rem;
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  .subtitle {
+    font-size: 2rem;
+    line-height: 1.18;
+  }
+
+  figure {
+    top: 0;
+    left: 0;
+    z-index: -1;
+    position: absolute;
+    height: 100%;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    figcaption {
+      position: absolute;
+      bottom: 1rem;
+      line-height: 1.4;
+      right: 1rem;
+      padding: 0.5rem;
+      color: var(--color-dark);
+      background-color: var(--color-beige-mod);
+      font-size: 0.8rem;
+    }
+  }
 }
