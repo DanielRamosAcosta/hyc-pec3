@@ -13,8 +13,8 @@ const browser = await puppeteer.launch({
 const views = ["desktop", "tablet", "phone"];
 const pages = ["index", "tema-del-mes", "blog", "post"];
 
-const skipViews = ["desktop", "tablet"];
-const skipPages = ["index", "tema-del-mes", "blog"];
+const skipViews: string[] = [];
+const skipPages: string[] = ["index", "tema-del-mes", "blog"];
 
 const result = await Promise.all(
   pages
@@ -33,8 +33,8 @@ const result = await Promise.all(
       elements: views
       .filter((view) => !skipViews.includes(view))
       .map((view) => {
-        const index = views.indexOf(view);
-        const originalPath = `materiales/mockups/0${index + 2}-${pageName}-${view}.png`;
+        const index = pages.indexOf(pageName);
+        const originalPath = `materiales/mockups/0${index + 1}-${pageName}-${view}.png`;
         const originalFile = PNG.PNG.sync.read(fs.readFileSync(originalPath));
         return {
           view,

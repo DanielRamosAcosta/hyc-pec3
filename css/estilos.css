@@ -403,6 +403,12 @@ main {
 
       a {
         text-decoration: none;
+        color: var(--color-dark);
+        transition: color 0.2s ease;
+
+        &:hover {
+          color: var(--color-green);
+        }
       }
     }
   }
@@ -413,6 +419,10 @@ h1 {
   margin-top: 3rem;
   margin-bottom: 3rem;
   line-height: 1.3;
+
+  @media(min-width: 1024px) {
+    font-size: 4.2rem;
+  }
 }
 
 h2 {
@@ -433,7 +443,7 @@ p {
   margin: 1rem 0;
 
   @media(min-width: 1024px) {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 }
 
@@ -471,9 +481,24 @@ figure:has(img) {
 }
 
 figure:has(iframe) {
+  margin: 0 auto;
+  max-width: 775px;
+
   figcaption {
     font-size: 0.75rem;
     margin-top: 0.5rem;
+
+    @media(min-width: 1024px) {
+      margin-top: 1rem;
+    }
+  }
+
+  iframe {
+    width: 100%;
+    max-width: 769px;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    margin: 0 auto;
   }
 }
 
@@ -483,6 +508,10 @@ figure:has(iframe) {
   display: flex;
   flex-direction: column;
   gap: 1.09rem;
+
+  @media(min-width: 1024px) {
+    font-size: 1.3rem;
+  }
 }
 
 .introduction {
@@ -490,13 +519,13 @@ figure:has(iframe) {
   margin-top: 3rem;
   margin-bottom: 3rem;
   line-height: 1.5;
+
+  @media(min-width: 1024px) {
+    font-size: 2rem;
+  }
 }
 
-iframe {
-  max-width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
-}
+
 
 hr {
   display: block;
@@ -504,9 +533,18 @@ hr {
 }
 
 .other-entries {
+  padding: 0 1rem;
+  @media(min-width: 1024px) {
+    padding: 0 4rem;
+  }
+
   h1 {
     font-size: 1.5rem;
     margin-bottom: 0.8rem;
+
+    @media(min-width: 1024px) {
+      font-size: 1.75rem;
+    }
   }
 }
 
@@ -514,16 +552,28 @@ hr {
   display: grid;
   gap: 2rem;
 
+  @media(min-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+    grid-row-gap: 4rem;
+  }
+
+  @media(min-width: 1024px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-row-gap: 4rem;
+  }
+
   > article {
     background: var(--color-light);
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 
     .content {
-      padding-top: 0rem;
-      padding-right: 1rem;
-      padding-left: 1rem;
-      padding-bottom: 1rem;
+      padding: 0 1rem 1rem;
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
+      flex: 1;
     }
 
     h2 {
@@ -532,6 +582,10 @@ hr {
 
     .button {
       margin-top: 1rem;
+
+      @media(min-width: 1024px) {
+        margin-top: 2rem;
+      }
     }
   }
 }
