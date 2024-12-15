@@ -360,10 +360,7 @@ main {
 }
 
 .container {
-  padding-top: 0rem;
-  padding-right: 1rem;
-  padding-left: 1rem;
-  padding-bottom: 0rem;
+  padding: 0 1rem;
   max-width: 1140px;
   margin: 0 auto;
 }
@@ -524,8 +521,6 @@ figure:has(iframe) {
     font-size: 2rem;
   }
 }
-
-
 
 hr {
   display: block;

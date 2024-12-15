@@ -14,7 +14,7 @@ const views = ["desktop", "tablet", "phone"];
 const pages = ["index", "tema-del-mes", "blog", "post"];
 
 const skipViews: string[] = [];
-const skipPages: string[] = ["index", "tema-del-mes", "blog"];
+const skipPages: string[] = [];
 
 const result = await Promise.all(
   pages
