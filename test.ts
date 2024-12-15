@@ -11,10 +11,15 @@ const browser = await puppeteer.launch({
 });
 
 const views = ["desktop", "tablet", "phone"];
-const pages = ["index" /*, "tema-del-mes", "blog", "post"*/];
+const pages = ["index", "tema-del-mes", "blog", "post"];
+
+const skipViews = ["desktop", "tablet"];
+const skipPages = ["index", "tema-del-mes", "blog"];
 
 const result = await Promise.all(
-  pages.map(async (pageName, i) => {
+  pages
+  .filter((page) => !skipPages.includes(page))
+  .map(async (pageName, i) => {
     const pagePath = `${pageName}.html`;
     const absolutePath = `file:///Users/danielramos/Documents/university/hyc/pec-03/${pagePath}`;
     const page = await browser.newPage();
@@ -25,8 +30,11 @@ const result = await Promise.all(
       rendering: false,
       pagePath,
       page,
-      elements: views.map((view) => {
-        const originalPath = `materiales/mockups/0${i + 1}-${pageName}-${view}.png`;
+      elements: views
+      .filter((view) => !skipViews.includes(view))
+      .map((view) => {
+        const index = views.indexOf(view);
+        const originalPath = `materiales/mockups/0${index + 2}-${pageName}-${view}.png`;
         const originalFile = PNG.PNG.sync.read(fs.readFileSync(originalPath));
         return {
           view,
