@@ -541,22 +541,24 @@ hr {
       font-size: 1.75rem;
     }
   }
+
+  .blog-entries {
+    display: grid;
+    gap: 2rem;
+
+    @media(min-width: 768px) {
+      grid-template-columns: 1fr 1fr;
+      grid-row-gap: 4rem;
+    }
+
+    @media(min-width: 1024px) {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-row-gap: 4rem;
+    }
+  }
 }
 
 .blog-entries {
-  display: grid;
-  gap: 2rem;
-
-  @media(min-width: 768px) {
-    grid-template-columns: 1fr 1fr;
-    grid-row-gap: 4rem;
-  }
-
-  @media(min-width: 1024px) {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-row-gap: 4rem;
-  }
-
   > article {
     background: var(--color-light);
     display: flex;
