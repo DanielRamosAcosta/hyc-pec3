@@ -130,58 +130,44 @@ header {
 }
 
 footer {
+  padding: 2rem 4rem 6rem 4rem;
   background-color: var(--color-dark);
   color: var(--color-light);
-  padding: 2rem 0 3.5rem;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  display: grid;
+  grid-template-areas:
+    "logo social-networks"
+    "copy legal";
+  justify-content: space-between;
+  grid-row-gap: 2rem;
 
-  @media(min-width: 1024px) {
-    flex-direction: row;
-    justify-content: space-between;
-    padding-top: 2rem;
-    padding-left: 4rem;
-    padding-right: 4rem;
-    padding-bottom: 4rem;
+
+  .logo {
+    grid-area: logo;
+    max-width: 10.5rem;
   }
 
-  .left {
+  .social-networks {
+    grid-area: social-networks;
     display: flex;
-    flex-direction: column;
+    justify-content: flex-end;
     align-items: center;
-    gap: 1.6rem;
 
-    .logo {
-      max-width: 10.5rem;
-    }
-  }
+    a {
+      opacity: 1;
+      transition: opacity 0.2s ease;
 
-  .right {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    @media(min-width: 1024px) {
-      align-items: flex-end;
-    }
-
-    .social-networks {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-
-      a {
-        opacity: 1;
-        transition: opacity 0.2s ease;
-
-        &:hover {
-          opacity: 0.7;
-        }
+      &:hover {
+        opacity: 0.7;
       }
     }
+  }
+
+  .copy {
+    grid-area: copy;
+  }
+
+  .legal {
+    grid-area: legal;
 
     ul {
       display: flex;
