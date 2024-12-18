@@ -141,13 +141,13 @@ footer {
       "legal";
   justify-content: center;
   justify-items: center;
-  align-items: center;
   grid-row-gap: 1.4rem;
 
   @media(min-width: 1024px) {
     grid-template-areas:
       "logo social-networks"
       "copy legal";
+    justify-items: initial;
     justify-content: space-between;
     grid-row-gap: 2rem;
   }
@@ -732,7 +732,6 @@ hr {
 
     @media(min-width: 1024px) {
       font-size: 2.5rem;
-      margin: 0 0 1rem;
     }
   }
 }
@@ -790,13 +789,14 @@ hr {
 
   @media(min-width: 1024px) {
     grid-gap: 3.5rem;
+    grid-row-gap: 3rem;
   }
 
   & > article {
     @media(min-width: 1024px) {
       display: grid;
       grid-column-gap: 3rem;
-      grid-template-columns: 1fr 1.25fr 2fr;
+      grid-template-columns: 1fr 1.3fr 2fr;
     }
 
     .info {
@@ -808,7 +808,7 @@ hr {
         line-height: 1.12;
 
         @media(min-width: 1024px) {
-          font-size: 1.94rem;
+          font-size: 1.8rem;
         }
 
         span {
