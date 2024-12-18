@@ -196,6 +196,7 @@ footer {
 a {
   text-decoration: underline;
   text-decoration-style: dotted;
+  text-underline-offset: 0.3rem;
   font-style: normal;
   color: var(--color-dark);
 }
