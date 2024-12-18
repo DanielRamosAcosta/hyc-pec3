@@ -672,3 +672,89 @@ hr {
     }
   }
 }
+
+.month-topic {
+  h1 {
+    text-align: center;
+    padding: 0 4rem;
+    margin-top: 2rem;
+    margin-bottom: 2.7rem;
+    line-height: 1.28;
+
+    time {
+      background: var(--color-green);
+      color: var(--color-light);
+      padding: 0 1rem;
+    }
+  }
+
+  .subtitle {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+  }
+}
+
+.table-of-contents {
+  margin-top: 3rem;
+  font-size: 0.95rem;
+
+  ul {
+    list-style: none;
+    display: flex;
+    gap: 0.35rem;
+    justify-content: center;
+
+    li {
+      font-weight: 700;
+      position: relative;
+
+      a {
+        text-decoration: none;
+      }
+
+      &:not(:first-child)::before {
+        content: "•";
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        font-size: 0.7rem;
+        position: absolute;
+        left: -5px;
+        top: 0;
+        color: var(--color-green)
+      }
+    }
+  }
+}
+
+.month-topics {
+  margin-top: 2.15rem;
+
+  & > article {
+    .info {
+      h2 {
+        display: block;
+        font-weight: 700;
+        margin-bottom: 0;
+        line-height: 1.12;
+
+        span {
+          font-size: 3rem;
+          display: block;
+        }
+
+        a {
+          display: block;
+          text-decoration: none;
+        }
+      }
+
+      p {
+        margin: 0;
+        font-size: 1rem;
+      }
+    }
+  }
+}

@@ -13,8 +13,8 @@ const browser = await puppeteer.launch({
 const views = ["desktop", "tablet", "phone"];
 const pages = ["index", "tema-del-mes", "blog", "post"];
 
-const skipViews: string[] = ["tablet", "phone"];
-const skipPages: string[] = ["index", "post", "tema-del-mes"];
+const skipViews: string[] = ["desktop", "tablet"];
+const skipPages: string[] = ["index", "blog", "post"];
 
 const result = await Promise.all(
   pages
