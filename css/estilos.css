@@ -421,6 +421,12 @@ h1 {
   @media(min-width: 1024px) {
     font-size: 4.2rem;
   }
+
+  time {
+    background: var(--color-green);
+    color: var(--color-light);
+    padding: 0 1rem;
+  }
 }
 
 h2 {
@@ -680,12 +686,6 @@ hr {
     margin-top: 2rem;
     margin-bottom: 2.7rem;
     line-height: 1.28;
-
-    time {
-      background: var(--color-green);
-      color: var(--color-light);
-      padding: 0 1rem;
-    }
   }
 
   .subtitle {
@@ -704,6 +704,7 @@ hr {
     display: flex;
     gap: 0.35rem;
     justify-content: center;
+    flex-wrap: wrap;
 
     li {
       font-weight: 700;
@@ -711,6 +712,11 @@ hr {
 
       a {
         text-decoration: none;
+        transition: color 0.2s ease;
+
+        &:hover {
+          color: var(--color-green);
+        }
       }
 
       &:not(:first-child)::before {
