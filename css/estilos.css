@@ -462,7 +462,7 @@ p {
   margin-bottom: 1rem;
 }
 
-figure:has(img) {
+.caption-overlay {
   position: relative;
 
   figcaption {
