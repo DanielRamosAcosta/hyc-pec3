@@ -356,10 +356,6 @@ button {
   }
 }
 
-main {
-  margin-bottom: 6.7rem;
-}
-
 .container {
   padding: 0 1rem;
   max-width: 1140px;
@@ -680,7 +676,19 @@ hr {
 }
 
 .month-topic {
+  display: grid;
+  padding: 0 4rem;
+
+  @media(min-width: 1024px) {
+    grid-template-columns: 0.25fr 1fr;
+    grid-template-areas:
+        "title title"
+        "subtitle subtitle"
+        "toc topics";
+  }
+
   h1 {
+    grid-area: title;
     text-align: center;
     padding: 0 4rem;
     margin-top: 2rem;
@@ -689,13 +697,20 @@ hr {
   }
 
   .subtitle {
+    grid-area: subtitle;
     font-size: 2rem;
     font-weight: 700;
     text-align: center;
+
+    @media(min-width: 1024px) {
+      font-size: 2.5rem;
+      margin: 0 0 1rem;
+    }
   }
 }
 
 .table-of-contents {
+  grid-area: toc;
   margin-top: 3rem;
   font-size: 0.95rem;
 
@@ -705,6 +720,10 @@ hr {
     gap: 0.35rem;
     justify-content: center;
     flex-wrap: wrap;
+    @media(min-width: 1024px) {
+      flex-direction: column;
+    }
+
 
     li {
       font-weight: 700;
@@ -736,18 +755,32 @@ hr {
 }
 
 .month-topics {
-  margin-top: 1.1rem;
+  grid-area: topics;
   margin-bottom: 8rem;
   display: grid;
   grid-gap: 2.16rem;
 
+  @media(min-width: 1024px) {
+    grid-gap: 3.5rem;
+  }
+
   & > article {
+    @media(min-width: 1024px) {
+      display: grid;
+      grid-column-gap: 3rem;
+      grid-template-columns: 1fr 1.25fr 2fr;
+    }
+
     .info {
       h2 {
         display: block;
         font-weight: 700;
         margin-bottom: 0;
         line-height: 1.12;
+
+        @media(min-width: 1024px) {
+          font-size: 1.94rem;
+        }
 
         span {
           font-size: 3rem;
