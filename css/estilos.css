@@ -135,11 +135,22 @@ footer {
   color: var(--color-light);
   display: grid;
   grid-template-areas:
-    "logo social-networks"
-    "copy legal";
-  justify-content: space-between;
-  grid-row-gap: 2rem;
+      "logo"
+      "copy"
+      "social-networks"
+      "legal";
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  grid-row-gap: 1.4rem;
 
+  @media(min-width: 1024px) {
+    grid-template-areas:
+      "logo social-networks"
+      "copy legal";
+    justify-content: space-between;
+    grid-row-gap: 2rem;
+  }
 
   .logo {
     grid-area: logo;
@@ -173,6 +184,7 @@ footer {
       display: flex;
       flex-direction: column;
       gap: 0.5rem;
+      align-items: center;
 
       @media(min-width: 1024px) {
         flex-direction: row;
@@ -534,6 +546,8 @@ hr {
 }
 
 .blog-entries {
+  margin-bottom: 6.2rem;
+
   > article {
     background: var(--color-light);
     display: flex;
