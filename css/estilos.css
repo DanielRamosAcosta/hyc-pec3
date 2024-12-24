@@ -179,29 +179,26 @@ footer {
 
   .legal {
     grid-area: legal;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
 
-    ul {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      align-items: center;
+    @media(min-width: 1024px) {
+      flex-direction: row;
+    }
 
-      @media(min-width: 1024px) {
-        flex-direction: row;
-      }
+    li {
+      list-style: none;
+      font-size: 0.9rem;
 
-      li {
-        list-style: none;
-        font-size: 0.9rem;
+      a {
+        color: inherit;
+        transition: color 0.2s ease;
+        text-decoration: none;
 
-        a {
-          color: inherit;
-          transition: color 0.2s ease;
-          text-decoration: none;
-
-          &:hover {
-            color: var(--color-green);
-          }
+        &:hover {
+          color: var(--color-green);
         }
       }
     }
@@ -479,10 +476,7 @@ h1 {
 
 h2 {
   font-size: 2rem;
-  margin-right: 0;
-  margin-left: 0;
-  margin-top: 1rem;
-  margin-bottom: 1.1rem;
+  margin: 1rem 0 1.1rem;
 
   @media(min-width: 1024px) {
     font-size: 2.5rem;
@@ -519,9 +513,23 @@ p {
 }
 
 .post .author {
-  display: block;
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
+  .author {
+    display: block;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  ol {
+    list-style: decimal;
+    margin-left: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.09rem;
+
+    @media(min-width: 1024px) {
+      font-size: 1.3rem;
+    }
+  }
 }
 
 .caption-overlay {
@@ -559,18 +567,6 @@ figure:has(iframe) {
     height: auto;
     aspect-ratio: 16 / 9;
     margin: 0 auto;
-  }
-}
-
-.post ol {
-  list-style: decimal;
-  margin-left: 3rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.09rem;
-
-  @media(min-width: 1024px) {
-    font-size: 1.3rem;
   }
 }
 
@@ -763,9 +759,7 @@ hr {
     text-align: center;
     padding: 0 4rem;
     line-height: 1.28;
-    margin: 0;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+    margin: 2rem 0 1rem;
   }
 
   .subtitle {
