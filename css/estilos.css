@@ -238,7 +238,7 @@ a {
   h1 {
     font-size: 3rem;
     z-index: 1;
-    margin-top: 0rem;
+    margin-top: 0;
     margin-bottom: 1rem;
 
     @media(min-width: 768px) {
@@ -281,7 +281,7 @@ a {
 form {
   display: flex;
   flex-direction: column;
-  gap: 1.1rem;
+  gap: 0.75rem;
   margin-bottom: 2rem;
 }
 
@@ -364,7 +364,7 @@ button {
     p {
       line-height: 1.5;
       margin-bottom: 1rem;
-      font-size: 1.3rem;
+      font-size: 1.1rem;
     }
 
     .button {
@@ -382,6 +382,7 @@ button {
 .what-is-naturae {
   display: grid;
   grid-template-columns: 1fr;
+  margin-top: 1rem;
 
   @media(min-width: 1024px) {
     grid-template-columns: 1.5fr 1fr;
@@ -390,6 +391,18 @@ button {
     & > *:nth-child(1) {
       grid-column: span 2;
     }
+  }
+}
+
+.change-stories {
+  margin-top: 2.5rem;
+  margin-bottom: 7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  p {
+    margin-bottom: 0;
   }
 }
 
@@ -846,3 +859,4 @@ hr {
     }
   }
 }
+
