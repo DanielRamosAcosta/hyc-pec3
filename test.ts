@@ -14,7 +14,7 @@ const views = ["desktop", "tablet", "phone"];
 const pages = ["index", "tema-del-mes", "blog", "post"];
 
 const skipViews: string[] = [];
-const skipPages: string[] = ["tema-del-mes", "blog", "post"];
+const skipPages: string[] = [];
 
 const result = await Promise.all(
   pages
@@ -71,9 +71,13 @@ const onChange = async (page: Page, element: ResultElement): Promise<void> => {
     const mine = PNG.PNG.sync.read(buffer);
     const diff = new PNG.PNG({ width, height });
 
-    pixelmatch(entry.originalFile.data, mine.data, diff.data, width, height, {
+    const numDiffPixels = pixelmatch(entry.originalFile.data, mine.data, diff.data, width, height, {
       threshold: 0.1,
     });
+
+    const area = width * height;
+    const diffPercentage = (numDiffPixels / area) * 100;
+    console.log(`${element.pageName} - ${entry.view} - ${diffPercentage.toFixed(2)}% different`);
 
     await fs.promises.writeFile(
       toDiff(entry.originalPath),
