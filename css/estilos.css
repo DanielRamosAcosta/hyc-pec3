@@ -220,7 +220,7 @@ a {
   text-decoration: underline;
   text-decoration-style: dotted;
   text-underline-offset: 0.3rem;
-  font-style: normal;
+  font-style: inherit;
   color: var(--color-dark);
 
   &:hover {
@@ -853,9 +853,10 @@ hr {
 
 .month-topics {
   grid-area: topics;
+  margin-top: 0.5rem;
   margin-bottom: 8rem;
   display: grid;
-  grid-gap: 3.3rem;
+  grid-gap: 3.25rem;
 
   @media(min-width: 1024px) {
     grid-gap: 3.5rem;
@@ -876,6 +877,7 @@ hr {
         margin-bottom: 0;
         margin-top: 0;
         line-height: 1.12;
+        font-size: 1.8rem;
 
         @media(min-width: 1024px) {
           font-size: 1.8rem;
@@ -907,8 +909,17 @@ hr {
         }
 
         figcaption {
-          font-size: 0.8rem;
-          margin-top: 0.3rem;
+          font-size: 0.75rem;
+          margin-top: 0.5rem;
+
+          span:nth-child(2) {
+            margin-left: 0.1rem;
+
+            &::before {
+              content: "|";
+              margin-right: 0.1rem;
+            }
+          }
         }
       }
     }
