@@ -69,6 +69,14 @@ body, html {
 }
 /*</editor-fold>*/
 
+/*<editor-fold desc="Utils">*/
+.container {
+  padding: 0 1rem;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+/*</editor-fold>*/
+
 /*<editor-fold desc="Component: Typography">*/
 h1 {
   font-size: 2.5rem;
@@ -738,14 +746,6 @@ figure:has(iframe) {
     width: 100%;
     object-fit: cover;
   }
-}
-/*</editor-fold>*/
-
-/*<editor-fold desc="Utils">*/
-.container {
-  padding: 0 1rem;
-  max-width: 1140px;
-  margin: 0 auto;
 }
 /*</editor-fold>*/
 
