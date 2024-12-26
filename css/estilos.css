@@ -750,7 +750,6 @@ figure:has(iframe) {
 /*</editor-fold>*/
 
 /*<editor-fold desc="Page-specific styles">*/
-
 form {
   display: flex;
   flex-direction: column;
