@@ -18,87 +18,21 @@ Primero nos encontramos un hero. Corrigiendo respecto la anterior PEC, esta vez 
 
 La primera sección es muy simple, ya que únicamente contiene su titular `h2` y algunos párrafos. A su derecha tenemos un formulario para suscribirse a la Newsletter. Como este contenido no está directamente relacionado con el contenido de la página y casi parece más un anuncio, creo que es adecuado meterlo en un `aside`. El formulario es muy sencillo, sólo tiene un `input` de tipo `text` para el nombre, y un `input` de tipo `email` para el correo. Ambos campos son obligatorios. He añadido un `label` para cada campo, y un `button` para enviar el formulario.
 
-La última sección es la de Historias del Cambio. Esta sección contiene tres tarjetas maquetadas con la etiqueta article
+La última sección es la de Historias del Cambio. Esta sección contiene tres tarjetas maquetadas con la etiqueta `article`, ya que estas representan información autocontenida.
 
-## `nosotros.html`
+## `tema-del-mes.html`
 
-A nivel de marcado, esta página es bastante sencilla (el CSS si es algo más complicado). Consta de 4 secciones. Cada una de ellas contiene un título. Eso es algo que he aprendido en esta PEC, que una sección siempre debería contener al menos un título.
+Esta página es algo más complicada, ya que cambia bastante entre el formato de escritorio y el de móvil. Finalmente gracias a CSS Grid, se ha simplificado bastante la implementación.
 
-Para poder alcanzar el resultado de las capturas, las secciones ocupan todo el ancho de la página, y luego dentro de ellas contienen un `div` con la clase container que es la que ajusta el ancho máximo de la página, tal y como se recomendaba en el enunciado.
+Primero encontramos el título de primer nivel `h1`, el subtítulo y el menú de navegación interno. Este menú está primero dentro de un `aside`, ya que no forma parte del contenido principal de esta página pero está relacionado con él. Además, es un elemento de navegación importante, por lo tanto también está dentro de un `nav`. Para que este elemento sea accesible y ya que no aparece ningún texto en los mockups, se le ha añadido una etiqueta `aria-label` con el valor "Tabla de contenidos" para que se entienda mejor cuando se navega con un lector de pantalla.
 
-Quería prestar especial atención a la parte de la dirección. En este caso, he optado usar la etiqueta `<br>` para separar el texto. Considero que es todo el mismo texto, pero que el hecho de separar las líneas es simplemente un salto de línea.
+Luego, encontramos cada uno de los elementos de los temas del mes. En un principio había pensado usar una Description List, pero creo que esto me complicaba la maquetación y finalmente he optado por usar títulos y y secciones simplemente. 
 
-Creo que se podría interpretar también como un listado si ningún tipo de estilo de lista, pero creo que era más adecuado en este caso particular interpretarlo de la primera forma.
+## `blog.html`
 
-Otro apunte es que el teléfono creo que se podría etiquetar con un `a` para que sea un enlace con el prefijo `tel:`. No lo he hecho porque en las capturas que se adjuntaban no se visualizaba como un enlace, pero creo que habría estado mejor así.
 
-## `eventos.html`
+## `post.html`
 
-La tabla la he separado en tres partes, `thead`, `tbody` y `tfoot`, ya que en las capturas se veía claramente esta distinción. El `thead` realmente contiene dos títulos.
-
-Respecto al `thead`, tiene el título principal "Relación de Eventos", que tiene un `colspan` de 4, ya que ocupa las 4 columnas de la tabla. Para que sea accesible, también he añadido el atributo `scope` con el valor `colgroup` para especificar que es el título de todas las columnas. Luego, cada columna tiene su propio título.
-
-Respecto al `tbody` ocurre algo similar. He considerado que el nombre del evento viene encabezando la fila de la tabla, por lo que la he marcado con un `th` y de forma similar a la columna, he usado el atributo `scope` con valor `row`.
-Creo que es interesante también comentar, que las fechas las he marcado con la etiqueta `time` para que sea más semántico.
-
-Por último, tenemos el `tfoot`. Sólo contiene una fila con una única celda que ocupa las 4 columnas.
-
-Había pensado añadir un `caption` para poder hacer la tabla más accesible, pero creo que una persona que usara el lector en pantalla, ya tendría suficiente contexto sobre FOCO como para entender esta tabla.
-
-## `formulario.html`
-
-El formulario creo que ha sido la parte más complicada de la PEC, ya que tiene muchos campos, distribuídos de distintas formas y hay que organizarlo todo bien.
-
-Lo primero que he identificado es que el formulario está dividido en tres partes bien diferenciadas. Por lo tanto, he envuelto cada parte en su propio `fieldset` y les he añadido un `legend` que contiene el título de la sección.
-
-Cada grupo de `label` e `input` los he agrupado finalmente en un `div` con la clase `input-group`. Esto es para que respeten las distancias entre sí, ya que si estuvieran sueltos en la raíz del `fieldset` se verían afectados por el `gap`.
-
-Los elementos de formulario que estaban agrupados en dos, los he metido en un `div` con la clase `two-columns`. Esto es para que se vean en dos columnas en la versión de escritorio, pero en la versión móvil se vean uno debajo de otro.
-
-Los asteriscos en un principio había pensado marcarlos con un `span` con un `aria-label` que describiera lo que significa el asterisco (ya que es un signo de puntuación realmente). Pero como he visto que está subrayado igual que los `abbr`, finalmente he optado por esta última opción.
-
-Vamos a comentar cada uno de los inputs del formulario:
-
-* Nombre: Este es un `input` de tipo texto, sin nada muy interesante. He añadido un `pattern` para que sólo se puedan introducir letras y espacios.
-* Descripción. Este es un `textarea` para que se pueda introducir más texto. En este caso parece que tiene una descripción algo más pequeña. He encontrado que en estos casos se puede usar la etiqueta `small` ya que se puede usar para pequeños comentarios (side comments).
-* Fecha: Este es un `input` de tipo `datetime-local`. He añadido un `min` para que no se puedan seleccionar fechas anteriores a la actual.
-* Ubicación: Este es un `input` de tipo texto.
-* Categoría: Este es un `select` con varias opciones. He añadido una a modo de placeholder.
-* Nombre de la organización: Este es un `input` de tipo texto.
-* Descripción de la organización. Al igual que la descripción del evento, he usado un `textarea` para que se pueda introducir más texto.
-* Persona de contacto: Este es un `input` de tipo texto y también tiene una pequeña descripción.
-* Correo electrónico de contacto: Este es un `input` de tipo email.
-* Teléfono de contacto: Este es un `input` de tipo teléfono. He añadido una longitud máxima de 9, ya que en España los números de teléfono son de 9 dígitos.
-* Aforo: Este es un `input` de tipo número. He añadido un `min` de 0, ya que no puede haber aforo negativo.
-* Precio de la entrada: Este es un `input` de tipo número. He añadido un `min` de 0, ya que no puede haber precios negativos y además un step de 0.01, ya que los precios suelen ser con dos decimales.
-* ¿Es necesario registro previo?: Este es un `input` de tipo `radio`. He añadido un `name` para que sólo se pueda seleccionar una opción.
-* He leído y acepto la política de privacidad: Este es un `input` de tipo `checkbox`. He añadido un `required` para que sea obligatorio.
-
-Por último, el botón de enviar, que lo he dejado como un botón simple.
-
-Al rellenar el formulario, se hará una petición `POST` en `http://localhost:3000`. En el enunciado se especificaba que no hacía falta implementar la parte que recibe esta petición, pero me he tomado la libertad de implementar un pequeño servidor que imprima por consola los datos que se han enviado. Este servidor se puede arrancar usando `node server.mjs` (hay que usar una versión de node reciente).
-
-El log de salida debería ser algo como esto:
-
-```
-URLSearchParams {
-  'eventName' => 'Codemotion',
-  'eventDescription' => 'Un evento tecnológico en Madrid',
-  'eventStartDate' => '2024-12-10T19:42',
-  'eventEndDate' => '2024-12-13T19:42',
-  'eventLocation' => 'Madrid',
-  'eventCategory' => 'tecnológica',
-  'organizationName' => 'Codemotion',
-  'organizationDescription' => 'Esto es un ejemplo',
-  'organizationContactName' => 'Marcos',
-  'organizationContactEmail' => 'marcos@example.com',
-  'organizationContactPhone' => '666123123',
-  'organizationWebsite' => 'http://codemotion.com',
-  'eventCapacity' => '100',
-  'eventPrice' => '23',
-  'registration' => 'yes',
-  'acceptsPrivacyPolicy' => 'on' }
-```
 
 ## `estilos.css`
 
