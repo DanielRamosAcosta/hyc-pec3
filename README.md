@@ -26,10 +26,15 @@ Esta página es algo más complicada, ya que cambia bastante entre el formato de
 
 Primero encontramos el título de primer nivel `h1`, el subtítulo y el menú de navegación interno. Este menú está primero dentro de un `aside`, ya que no forma parte del contenido principal de esta página pero está relacionado con él. Además, es un elemento de navegación importante, por lo tanto también está dentro de un `nav`. Para que este elemento sea accesible y ya que no aparece ningún texto en los mockups, se le ha añadido una etiqueta `aria-label` con el valor "Tabla de contenidos" para que se entienda mejor cuando se navega con un lector de pantalla.
 
-Luego, encontramos cada uno de los elementos de los temas del mes. En un principio había pensado usar una Description List, pero creo que esto me complicaba la maquetación y finalmente he optado por usar títulos y y secciones simplemente. 
+Luego, encontramos cada uno de los elementos de los temas del mes. En un principio había pensado usar una Description List, esto  complicaba bastante la maquetación. Finalmente he optado por usar títulos y secciones simplemente.
+
+Un aspecto que he pensado bastante son los número que están como prefijo de cada uno de los encabezados. En un principio, los había añadido en el marcado del HTML, añadiéndoles atributos `aria-label` para que fueran leídos correctamente por un lector de pantalla. Sin embargo, investigando, he encontrado la forma de hacerlo sólo con CSS gracias a la propiedad `counter-reset`, así que finalmente he optado por esta alternativa.
 
 ## `blog.html`
 
+La página de blog tiene un título de primer nivel `h1`, y luego un `article` para cada entrada del blog representada como una card. El marcado de cada Card es sencillo, incluye una `figure` con su `figcaption` correspondiente, un h2 para el título, un párrafo por la descripción y luego el autor del artículo. Para el autor del artículo, he encontrado en [la documentación de MDN](https://arc.net/l/quote/hypaklpu) que es adecuado usar la etiqueta `address`. En principio en esta etiqueta se debería poner la información de contacto del autor, pero entiendo que en este caso que no tenemos una sección de "Perfiles de los autores" es adecuado poner el nombre del autor.
+
+Al final tenemos la paginación, que simplemente es un `nav` con enlaces. Leyendo la documentación de MDN, parece que en este caso sí es correcto usarlo ya que serviría para navegar el listado de entradas de blog.
 
 ## `post.html`
 
