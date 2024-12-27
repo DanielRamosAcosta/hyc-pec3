@@ -498,6 +498,13 @@ figure:has(iframe) {
       margin-top: 0.5rem;
     }
 
+    .author {
+      address {
+        display: inline;
+        font-style: normal;
+      }
+    }
+
     .button {
       margin-top: 1rem;
     }
@@ -814,6 +821,11 @@ form {
     display: block;
     font-size: 1.2rem;
     margin-bottom: 1rem;
+
+    address {
+      display: inline;
+      font-style: normal;
+    }
   }
 
   ol {
