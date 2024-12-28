@@ -81,8 +81,19 @@ Se que en el mundo del CSS existen varias metodologías como BEM, SMACSS, Atomic
 
 Además, creo que con el CSS Nesting este approach queda bastante bien, ya que tenemos un una corelación casi 1 a 1 entre el CSS y el HTML.
 
+Si se quisiera continuar con el desarrollo, los pasos serían los siguientes:
+
+1. Ante un cambio en el diseño...
+2. Identificar el componente nuevo o el componente afectado
+3. Buscar la mejor forma de seleccionar el HTML de ese componente. En algunos casos es necesario una clase CSS, en otras se puede realizar usando etiquetas `aria`.
+4. Añadir el CSS correspondiente a este componente de la forma más aislada posible, intentando no impactar en otros componentes.
+
 ## Apuntes finales
 
-De nuevo en esta práctica final, he intentado acercarme lo máximo posible al diseño original.
+De nuevo en esta práctica final, he intentado acercarme lo máximo posible al diseño original. En algunas ocasiones es un poco difícil, ya que no estoy seguro si el especiado de los elementos es algo intrínseco del propio elemento, padding o margin específico en ese lugar o algo distinto como `line-height`.
 
-La verdad que he aprendido bastante con esta prueba, en especial respecto a toda la diversidad de inputs y de atributos que pueden tener estos elementos HTML. También me ha gustado mucho las distintas formas que hay de maquetar los títulos de las tablas HTML.
+Creo que si hiciera una web desde cero, intentaría ser un poco más simplista en cuanto a la componentización y el espaciado.
+
+Otra experiencia que me llevo de esta PEC, es que hay que separar muy bien (y mejor) los estilos del propio componente, y el espaciado que tiene en el lugar particular que ocupa en la página.
+
+Creo que la parte que me ha resultado más interesante, ha sido experimentar bastante con CSS Grid y su combinación con media queries, me ha parecido muy muy potente.
