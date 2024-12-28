@@ -38,6 +38,11 @@ Al final tenemos la paginación, que simplemente es un `nav` con enlaces. Leyend
 
 ## `post.html`
 
+En el fichero `post.html` lo primero que encontramos es el breadcrumb. He usado un `nav` con un `ol` para representar el breadcrumb. He usado un `ol` en lugar de un `ul` porque en un `ol` se presupone que hay un orden, y en este caso el orden es importante. He añadido un `aria-label` para que se entienda mejor cuando se navega con un lector de pantalla.
+
+El siguiente elemento es el `article`, que tiene el articulo del post entero, en este elemento tenemos:
+
+* ``
 
 ## `estilos.css`
 
