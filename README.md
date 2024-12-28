@@ -4,6 +4,10 @@ En esta PEC se nos pide implementar una página web llamada Naturae Hub, que con
 
 Además, se incluye una parte final en la que se explica cómo continuar con el desarrollo.
 
+En esta PEC se ha subido a Github ([enlace al repositorio](https://github.com/DanielRamosAcosta/hyc-pec3)) y se ha usado Github Pages para publicar la página en internet. La página está accesible en https://www.danielramos.me/hyc-pec3/.
+
+Este informe se ha escrito en Markdown y pasado luego a PDF usando el propio servicio de Github. A pesar de que se ha entregado en PDF, recomiendo su lectura en la web directamente, ya que creo que es más cómodo.
+
 ## Partes Comunes
 
 1. `head`: De nuevo, no voy a profundizar mucho en las etiquetas `meta`, ya que lo hemos tratado en anteriores PEC. De forma similar a la anterior, cada página tiene un `title` y `description` específicos, para mejorar el SEO en el caso que fuera una web real.
