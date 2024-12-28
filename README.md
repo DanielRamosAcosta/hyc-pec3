@@ -42,27 +42,47 @@ En el fichero `post.html` lo primero que encontramos es el breadcrumb. He usado 
 
 El siguiente elemento es el `article`, que tiene el articulo del post entero, en este elemento tenemos:
 
-* ``
+* Título: Una etiqueta `h1` representando la cabecera de primer nivel
+* Autor: Al igual que en las cards de la página de blog, he usado la etiqueta `address` para representar el autor del post.
+* Cover Image: He usado una `figure` para representar la imagen de portada del post, y al igual que en las cards, un `figcaption` que describe la autoría de la imagen.
+* Descripción: Este es un texto algo más destacado sobre el resto del artículo. Creo que no tiene más peso semántico que un `p`.
+* Secciones: Los siguientes elementos que encontramos son secciones, algunas de ellas con contenido rico. Lo más importante es un elemento iframe para embeber un video de YouTube, y una lista ordenada para reducir el impacto de la moda rápida.
+
+Por último, encontramos la sección de "Te puede interesar". Estuve dudando si esta parte tiene sufficient autonomía como para ser una sección en si misma, pero creo que sí ya que tiene entradas de blog y cumple con el criterio de tener un encabezado propio. Las entradas del blog están reutilizadas de la página de `blog.html`.
 
 ## `estilos.css`
 
-De nuevo, para esta PEC he dividido los etilos con comentarios especiales para que esté más organizado y sea más fácil de corregir.
+En esta PEC ha sido el fichero de CSS más extenso de todos, llegando casi a las 1000 líneas. A pesar de su tamaño, he intentado organizarlo orientado a componentes, de forma que sea más fácil de mantener y de corregir, hay muy poco CSS global. De nuevo al igual que anteriores PECs, el fichero está dividido en distintas secciones usando `editor-fold`.
 
-* Reset: Son los estilos que se aplican a todos los elementos para que se vean igual en todos los navegadores.
-* Root Variables: Son las variables CSS que se usan en todo el documento. Además, también establezco el valor de la fuente general de todo el documento.
-* Header: Estilos del header.
-* Typography: Estilos de tipografía. He usado las fuentes de Google Fonts que se especificaban en el enunciado. Sólo he tenido que estilar dos niveles de títulos y el subtítulo.
-* Layout: Estilos relacionados con el formato de la página: Que salga a tamaño completo, el container para que aparezca centrado y con márgenes, etc.
-* Button: Estilos del botón y del enlace con estilo botón
-* Footer: Estilos del footer. He usado flexbox para alinear los elementos de la lista, y les he puesto un punto como separador entre ellos.
-* General styles inside sections: Aquí hay bastantes estilos de cómo se deben ver las secciones en general, y el contenido que aparece dentro. Lo más relevante creo que es el estilo de los enlaces. Lo he puesto aquí dentro para que no interfiera con los enlaces del menú ni del footer.
-* Dark sections: estilos específicos para las secciones oscuras (aunque solo hay una en este caso).
-* Table: Estilos de la tabla. Un aspecto interesante en este punto, es que había tenido que usar bastantes clases CSS para poder estilar los títulos de las tablas. Finalmente he refactorizado el código para usar selectores por el scope que tienen los títulos de las tablas. Creo que así ha quedado más semántico.
-* Form: Estilos del formulario. Los elementos que están uno debajo de otros, en general se alinean con flexbox con un `gap` determinado. Lo más interesante es que he usado pseudoclases para estilar los inputs que tienen foco, que tienen algún error, y también cuando son válidos.
-* Utilities: Algunos estilos de utilidad, como el de `light` para tener un color de fondo más claro o `uppercase` para poner el texto en mayúsculas.
+1. `Reset`: En esta sección, he añadido un reset de CSS básico, que elimina los márgenes y paddings por defecto de los elementos HTML, y cambia el modelo de caja a `box-sizing: border-box`.
+2. `Global`: En esta sección, he definido las variables globales de CSS, como los colores, las fuentes y otro tipo de CSS global como las fuentes y los colores.
+3. `Utils`: En esta sección, he definido alguna clase de utilidad, aunque ahora mismo sólo existe la clase `.container`, al igual que en anteriores PEC.
+4. `Component: Typography`: Esta sección define el CSS de los títulos y los párrafos de forma global.
+5. `Component: Header`: Este componente es el correspondiente a las cabeceras de cada una de las páginas de esta PEC. Además de usar CSS Nesting, también tiene media queries nesteadas para adaptarse a las diferentes pantallas. En los apuntes finales comentaré más sobre este mecanismo. Este componente usa `display: flex` para mostrarse en formato columna en pantallas pequeñas, y en formato fila en pantallas grandes.
+6. `Component: Footer`: De nuevo otro componente transversal a todas las páginas. Este es algo más complicado, y es el primero de esta lista que hace uso de CSS Grid para maquetar los elementos. En este caso, he hecho uso de `grid-template-areas` definiendo 4 áreas: `logo`, `copy`, `social-networks` y `legal`. Estas áreas se ven una debajo de la otra en móvil, pero usando un media query, se ven en dos columnas. La parte de _social network_ y los enlaces legales se muestran con `display flex` y la parte legal tiene media queries para cambiar la distribución en escritorio.
+7. `Component: Link`: Componente para los enlaces. Usa un `text-decoration: underline` con `text-decoration-style: dotted` para generar el subrayado punteado tal y como se ve en los mockups. Además, en su estado `hover` tiene un estilo sólido.
+8. `Component: Text Field`: El estilo de este componente es muy sencillo. Hace uso de `display flex` para poder usar un `gap`, y se aplican los estilos al input para que coincidan con los del mockup.
+9. `Component: Checkbox`: Aquí tenemos los estilos de otro componente del formulario, el checkbox. Vale la pena detenernos aquí, ya que el selector es interesante. Necesito un selector CSS que escoja el `div` que está rodeando el `input[type="checkbox"]`, y para ello he usado la pseudoclase `has()`. De esta forma, la regla `div:has(> input[type="checkbox"])` se podría leer comp "selecciona el div que tenga un input de tipo checkbox directamente descendiente".
+10. `Component: Button`. Esto son los estilos tanto del botón, como el enlace con estilo de botón. Se muestra como un bloque, y se alinea al principio, ya que siempre que lo vemos mostrado se muestra lineado de esta forma. En su estado `hover` cambia el color del borde a verde.
+11. `Component: Stories`: Para no estar poniendo una clase CSS a cada uno de los componentes que se quiera mostrar como una "Historia del Cambio", mi estrategia (que es la misma que en las entradas del blog) es aplicar una clase en plural al contenedor, y luego seleccionar el hijo que me interese para que aplique a todos. En este caso, selecciono todos los `article` que estén dentro del `stories`. Gracias al CSS Nesting, creo que este componente queda más o menos fácil de leer. Primero los estilos del título `h3`, luego su contenido que es un `p`, y por último el `.button`.
+12. `Component: Breadcrumb`: Para poder estilar el breadcrumb, simplemente se le aplican estilos al `ol` para que se muestren en horizontal. Merece la pena destacar el mecanismo que se usa para mostrar el caracter ">" entre los elementos. Usando el selector `&:not(:first-child)::before`, seleccionamso todos los elementos que no sean el primer hijo, y a su `::before` les añadimos un `content: " >";`. De esta forma, se añade el caracter ">" entre los elementos, pero no al principio.
+13. `Component: Figures`: Esto son los estilos cuando queramos un `figcaption` que esté como overlay, por ejemplo en las imágenes de las cards del blog. También tenemos estilado el `figure` que contiene el `iframe` del vídeo.
+14. `Blog: Entry`: Este es el componente que tiene los estilos de cada una de las entradas del blog. Usa la misma estrategia que el componente de `Stories` para aplicar los estilos a cada uno de las entradas del blog. Cada entrada de blog, se estila con su `.content`, el título que es un `h2`, su contenido un `p`, el autor usando la clase `.author` y por último el `.button`.
+15. `Component: Table Of Contents`: Esta es la tabla de contenidos de la página del Tema del Mes. En móvil se muestran los elementos con `display: flex` con `flex-direction: row`, y en escritorio se muestran en columna para coincidir con el diseño original. Para estilar los puntos que se ven en móvil, se usa el mismo mecanismo que en el breadcrumb.
+16. `Component: Pagination`: Este es el componente de la paginación. Se trata de nuevo de un contenedor con `display: flex`. Me parece interesante cómo está estilada la página actual. He usado `aria-current="page"` en el HTML para poder marcar esa es la página actual, y me he aprovechado de este atributo para poder estilar el enlace de la página actual de forma diferente.
+17. `Component: Month Topics`: De forma similar a las entradas de blog, esta clase aplica a varios elementos, y cada elemento viene definido por la etiqueta `article`. Creo que es interesante comentar que el número del heading en el que estamos, se hace mediante la propiedad `counter-increment: article-counter`. Luego, en cada `h2` se coloca en el pseudoelemento `::before` un `content: "#" counter(article-counter)`. De esta forma logramos que el número del heading sea el número del título en el que se encuentra.
+18. `Component: Hero`: Este es el componente que se usa a modo de cabecera en la página principal. Ha quedado un poco enrevesado porque he tenido que justar un poco los espaciados para que coincida pefectamente con las capturas.
+19. `Component: Page Cover`: Este componente se usa en la cabecera de la página del post para ajustar los estilos de la imagen.
+20. `Page-specific styles`: El resto de estilos que tenemos, lo único que hacen es ajustar la distribución y los espaciados para que todo coincida en todos los tamaños con los diseños originales. Cada clase CSS de esta sección corresponde directamente con alguna de las páginas o con alguna sección dentro de éstas. Lo más reseñable, es el uso de CSS Grid en las entradas de blog.
+
+## Metodología y continuación del desarrollo.
+
+Se que en el mundo del CSS existen varias metodologías como BEM, SMACSS, Atomic, etc. En este caso, he intentado seguir una metodología orientada a componentes intentando innovar un poco. Para lograrlo he intentado que el CSS Global sea el mínimo posible, y definir estructuras de estos componentes pequeños como los botones, los enlaces, los títulos, etc. De esta forma, si en un futuro se quisiera cambiar el estilo de un botón, por ejemplo, sólo habría que tocar el componente de botón, y no tendría que tocar el componente de enlace con estilo de botón, el componente de botón en una card, etc.
+
+Además, creo que con el CSS Nesting este approach queda bastante bien, ya que tenemos un una corelación casi 1 a 1 entre el CSS y el HTML.
 
 ## Apuntes finales
 
-De nuevo, he intentado acercarme lo máximo posible al diseño original, para lo cual he tenido que ir un poco con ensayo y error hasta dar con el resultado adecuado. 
+De nuevo en esta práctica final, he intentado acercarme lo máximo posible al diseño original.
 
 La verdad que he aprendido bastante con esta prueba, en especial respecto a toda la diversidad de inputs y de atributos que pueden tener estos elementos HTML. También me ha gustado mucho las distintas formas que hay de maquetar los títulos de las tablas HTML.
